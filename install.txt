@@ -4,5 +4,15 @@ composer create-project laravel/laravel equity
 - Breeze
 composer require laravel/breeze --dev
 
-- Installer vue js
-npm install vue@3
+php artisan breeze:install
+
+- Création de la BDD
+php artisan migrate
+
+- installer alpine js
+npm install alpinejs
+
+-- boostrap.js
+import Alpine from 'alpinejs'
+window.Alpine = Alpine
+Alpine.start()

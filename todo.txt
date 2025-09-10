@@ -1,0 +1,33 @@
+Laravel :
+
+Vues
+
+- home.blade.php => Page d'accueil avec les cours dispo + infos
+- cours.blade.php => Détails d'un cours, avec les différents modules
+- module.blade.php => Module d'un cours, avec la vidéo et le script ?
+- compte.blade.php => Dashboard de l'utilisateur
+- connect.blade.php => Page de connexion
+
+
+BDD :
+
+Tables
+
+- users => contient tous les utilisateurs qui ont accès au site
+- users_cours => les inscriptions des users aux différents cours
+- cours => Les cours disponible sur le site
+- modules => les modules proposés dans les cours
+- videos => les vidéos dispo dans les modules, cette table contiendrait également les scripts textuels des vidéos. 
+            Idéal si y'a besoin de réutiliser une vidéo dans plusieurs modules
+
+
+=> Faire en sorte qu'un utilisateur puisse s'inscrire à un cours (commencer un cours)
+    On pourra ensuite tracker son avancer et marquer comme terminer les modules qu'il a fini
+    L'utilisateur peut s'inscrire à UN ou PLUSIEURS cours
+    
+
+=> Un cours est :
+    Assigné à UN ou PLUSIEURS utilisateurs
+    possède UN ou PLUSIEURS modules
+
+=> Un module contiendra une vidéo et un script textuel de la vidéo

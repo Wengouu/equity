@@ -1,0 +1,8 @@
+- Créer un projet Laravel
+composer create-project laravel/laravel equity
+
+- Breeze
+composer require laravel/breeze --dev
+
+- Installer vue js
+npm install vue@3

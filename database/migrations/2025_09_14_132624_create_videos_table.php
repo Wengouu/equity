@@ -2,9 +2,9 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Schema;  
+use Illuminate\Support\Facades\Schema;
 
-use App\Models\Cours;
+use App\Models\Module;
 
 return new class extends Migration
 {
@@ -13,12 +13,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('modules', function (Blueprint $table) {
+        Schema::create('videos', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Cours::class)->constrained()->cascadeOnDelete();
+            $table->foreignIdFor(Module::class)->constrained()->cascadeOnDelete();
             $table->string('titre');
-            $table->text('description');
-            $table->string('image')->nullable();
+            $table->string('fichier');
+            $table->text('transcription');
             $table->boolean('publie')->default(false);
             $table->timestamps();
         });
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('modules');
+        Schema::dropIfExists('videos');
     }
 };

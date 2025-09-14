@@ -9,4 +9,9 @@ class Cours extends Model
     protected $table = 'cours';
 
     protected $guarded = ['id'];
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class, 'cours_users');
+    }
 }

@@ -4,6 +4,9 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
+use App\Models\User;
+use App\Models\Cours;
+
 return new class extends Migration
 {
     /**
@@ -11,12 +14,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('cours', function (Blueprint $table) {
-            $table->id();
-            $table->string('titre');
-            $table->text('description');
-            $table->string('image')->nullable();
-            $table->boolean('publie')->default(false);
+        Schema::create('cours_users', function (Blueprint $table) {
+            $table->foreignIdFor(User::class)->constrained()->cascadeOnDelete();
+            $table->foreignIdFor(Cours::class)->constrained()->cascadeOnDelete();
+            $table->primary(['user_id', 'cours_id']);
             $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('cours');
+        Schema::dropIfExists('cours_users');
     }
 };

@@ -1,22 +1,33 @@
-<x-app-layout>
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formations Equity the Board Game</title>
+    @vite(['resources/css/app.css'])
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+
+    <livewire:welcome.navigation />
+
     <!-- HEADER / HERO -->
-    <x-slot name="header">
-        <div class="relative bg-indigo-600 text-white">
-            <div class="max-w-7xl mx-auto px-6 py-20 text-center z-50 relative">
-                <h1 class="text-4xl md:text-6xl font-bold mb-6">Formations Equity the Board Game</h1>
-                <p class="text-lg md:text-xl mb-8">Apprenez à jouer et à maîtriser le jeu pas à pas grâce à nos cours
-                    simples et efficaces.</p>
-                <a href="#courses"
-                    class="bg-white text-indigo-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition">Découvrir
-                    les cours</a>
-            </div>
-            <img src="{{ asset('assets/images/header-bg.jpg') }}" alt="Header Background"
-                class="absolute inset-0 w-full h-full object-cover object-center z-0 rounded-lg">
-            <div class="absolute inset-0 bg-gradient-to-t from-indigo-900/70 to-indigo-600 opacity-60"></div>
-            {{-- <img src="{{ asset('assets/images/logo.png') }}" alt="Logo de Equity The Board Game"
-                class="absolute right-10 bottom-10 w-32 opacity-80"> --}}
+    <header class="relative bg-indigo-600 text-white">
+        <div class="max-w-7xl mx-auto px-6 py-20 text-center z-50 relative">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">Formations Equity the Board Game</h1>
+            <p class="text-lg md:text-xl mb-8">Apprenez à jouer et à maîtriser le jeu pas à pas grâce à nos cours
+                simples et efficaces.</p>
+            <a href="#courses"
+                class="bg-white text-indigo-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition">Découvrir
+                les cours</a>
         </div>
-    </x-slot>
+        <img src="{{ asset('assets/images/header-bg.jpg') }}" alt="Header Background"
+            class="absolute inset-0 w-full h-full object-cover object-center z-0">
+        <div class="absolute inset-0 bg-gradient-to-t from-indigo-900/70 to-indigo-600 opacity-60"></div>
+        {{-- <img src="{{ asset('assets/images/logo.png') }}" alt="Logo de Equity The Board Game"
+            class="absolute right-10 bottom-10 w-32 opacity-80"> --}}
+    </header>
 
     <!-- COURS DISPONIBLES -->
     <section id="courses" class="max-w-7xl mx-auto px-6 py-20">
@@ -83,4 +94,7 @@
             <p>&copy; {{ date('Y') }} Equity the Board Game - Tous droits réservés.</p>
         </div>
     </footer>
-</x-app-layout>
+
+</body>
+
+</html>

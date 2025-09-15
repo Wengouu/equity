@@ -69,7 +69,7 @@ new class extends Component
 
                         <!-- Authentication -->
                         <button wire:click="logout" class="w-full text-start">
-                            <x-dropdown-link>
+                            <x-dropdown-link wire:click="logout" class="w-full text-start">
                                 {{ __('Déconnexion') }}
                             </x-dropdown-link>
                         </button>

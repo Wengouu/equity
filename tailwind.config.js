@@ -17,7 +17,7 @@ export default {
     theme: {
         extend: {
             colors: {
-              primary: colors.rose, 
+              primary: colors.indigo, 
             },
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],

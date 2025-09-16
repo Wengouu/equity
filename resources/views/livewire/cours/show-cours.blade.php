@@ -3,6 +3,7 @@
 use Livewire\Volt\Component;
 
 use App\Models\Cours;
+use Illuminate\Support\Facades\URL;
 
 new class extends Component {
 
@@ -20,7 +21,7 @@ new class extends Component {
     <x-card title="{{ $coursItem->titre }}" rounded="base">
         <x-slot name="title" class="font-bold text-lg">{{ $coursItem->titre }}</x-slot>
         <p class="mb-4">{{ $coursItem->description }}</p>
-        <x-button primary href="#">Commencer</x-button>
+        <x-button primary href="{{  URL::to('/cours/'.$coursItem->slug) }}">Begin</x-button>
     </x-card>
     @endforeach
 </div>

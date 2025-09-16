@@ -11,12 +11,12 @@ Route::view('dashboard', 'dashboard')
     ->name('dashboard');
 
 
-Route::view('cours', 'cours')
+Route::view('course', 'cours')
     ->middleware(['auth'])
     ->name('cours');
 
 //Détail d'un cours
-Route::view('cours/{slug}', 'cours.show')
+Route::view('course/{slug}', 'cours.show')
     ->where('slug', '^[a-z0-9-]+$')
     ->middleware(['auth'])
     ->name('cours.show');

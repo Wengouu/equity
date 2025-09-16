@@ -1,59 +1,30 @@
-<!DOCTYPE html>
-<html lang="fr">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formations Equity the Board Game</title>
-    @vite(['resources/css/app.css'])
-</head>
-
-<body class="bg-gray-50 text-gray-800">
-
-    <livewire:welcome.navigation />
+<x-app-layout class="bg-gray-50 text-gray-800">
 
     <!-- HEADER / HERO -->
-    <header class="relative bg-indigo-600 text-white">
-        <div class="max-w-7xl mx-auto px-6 py-20 text-center z-50 relative">
-            <h1 class="text-4xl md:text-6xl font-bold mb-6">Formations Equity the Board Game</h1>
-            <p class="text-lg md:text-xl mb-8">Apprenez à jouer et à maîtriser le jeu pas à pas grâce à nos cours
-                simples et efficaces.</p>
-            <a href="#courses"
-                class="bg-white text-indigo-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition">Découvrir
-                les cours</a>
+    <x-slot name="header">
+        <div class="relative bg-indigo-600 text-white">
+            <div class="max-w-7xl mx-auto px-6 py-20 text-center z-50 relative">
+                <h1 class="text-4xl md:text-6xl font-bold mb-6">Formations Equity the Board Game</h1>
+                <p class="text-lg md:text-xl mb-8">Apprenez à jouer et à maîtriser le jeu pas à pas grâce à nos cours
+                    simples et efficaces.</p>
+                <a href="#courses"
+                    class="bg-white text-indigo-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition">Découvrir
+                    les cours</a>
+            </div>
+            <img src="{{ asset('assets/images/header-bg.jpg') }}" alt="Header Background"
+                class="absolute inset-0 w-full h-full object-cover object-center z-0">
+            <div class="absolute inset-0 bg-gradient-to-t from-indigo-900/70 to-indigo-600 opacity-60"></div>
+            {{-- <img src="{{ asset('assets/images/logo.png') }}" alt="Logo de Equity The Board Game"
+                class="absolute right-10 bottom-10 w-32 opacity-80"> --}}
         </div>
-        <img src="{{ asset('assets/images/header-bg.jpg') }}" alt="Header Background"
-            class="absolute inset-0 w-full h-full object-cover object-center z-0">
-        <div class="absolute inset-0 bg-gradient-to-t from-indigo-900/70 to-indigo-600 opacity-60"></div>
-        {{-- <img src="{{ asset('assets/images/logo.png') }}" alt="Logo de Equity The Board Game"
-            class="absolute right-10 bottom-10 w-32 opacity-80"> --}}
-    </header>
+    </x-slot>
 
     <!-- COURS DISPONIBLES -->
     <section id="courses" class="max-w-7xl mx-auto px-6 py-20">
         <h2 class="text-3xl font-bold text-center mb-12">Nos Formations</h2>
 
-        <div class="grid md:grid-cols-3 gap-10">
-            <!-- Exemple de bloc cours -->
-            <livewire:cours.show-cours />
-            <div class="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition">
-                <h3 class="text-xl font-bold mb-4">Introduction au Jeu</h3>
-                <p class="mb-4">Découvrez les bases et commencez à jouer étape par étape.</p>
-                <x-button primary href="#">Commencer</x-button>
-            </div>
+        <livewire:cours.show-cours />
 
-            <div class="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition">
-                <h3 class="text-xl font-bold mb-4">Stratégies Avancées</h3>
-                <p class="mb-4">Apprenez les meilleures tactiques pour améliorer vos performances.</p>
-                <x-button primary href="#">Commencer</x-button>
-            </div>
-
-            <div class="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition">
-                <h3 class="text-xl font-bold mb-4">Analyse des Parties</h3>
-                <p class="mb-4">Étudiez des parties réelles pour progresser rapidement.</p>
-                <x-button primary href="#">Commencer</x-button>
-            </div>
-        </div>
     </section>
 
     <!-- TEXTE EXPLICATIF -->
@@ -96,6 +67,4 @@
         </div>
     </footer>
 
-</body>
-
-</html>
+</x-app-layout>

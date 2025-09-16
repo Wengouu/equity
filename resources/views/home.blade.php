@@ -35,6 +35,7 @@
 
         <div class="grid md:grid-cols-3 gap-10">
             <!-- Exemple de bloc cours -->
+            <livewire:cours.show-cours />
             <div class="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition">
                 <h3 class="text-xl font-bold mb-4">Introduction au Jeu</h3>
                 <p class="mb-4">Découvrez les bases et commencez à jouer étape par étape.</p>

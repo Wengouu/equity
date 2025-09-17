@@ -2,15 +2,18 @@
 
 namespace App\Filament\Resources\Videos\Schemas;
 
-phpinfo();
-
+use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\MarkdownEditor;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Schema;
 
-use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\FileUpload;
-use Filament\Forms\Components\Toggle;
-use Filament\Forms\Components\Select;
-use Filament\Forms\Components\MarkdownEditor;
+//TODO :
+/*
+- Controller avec des fonctions communes (markdown vers html , chaine en slug, etc.)
+- Afficher la vidéo sur le site
+*/
 
 class VideoForm
 {
@@ -19,9 +22,9 @@ class VideoForm
         return $schema
             ->components([
                 Select::make('module_id')
-                ->relationship('module', 'titre')
-                ->label('Module associé à la vidéo')
-                ->required(),
+                    ->relationship('module', 'titre')
+                    ->label('Module associé à la vidéo')
+                    ->required(),
                 TextInput::make('titre')
                     ->label('Titre de la vidéo')
                     ->nullable()
@@ -37,7 +40,7 @@ class VideoForm
                     ->nullable(),
                 Toggle::make('publie')
                     ->label('Publier la vidéo')
-                    ->default(false)
+                    ->default(false),
             ]);
     }
 }

@@ -48,6 +48,12 @@ class User extends Authenticatable
         ];
     }
 
+    //on vérifie si l'utilisateur est inscrit au cours
+    public function isUserEnrolledInCourse($cours_id): bool
+    {
+        return $this->cours()->where('cours_id', $cours_id)->exists();
+    }
+
     public function cours()
     {
         return $this->belongsToMany(Cours::class, 'cours_users');

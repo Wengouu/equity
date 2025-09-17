@@ -23,11 +23,15 @@
     <section id="courses" class="max-w-7xl mx-auto px-6 py-20">
         <h2 class="text-3xl font-bold text-center mb-12">Our Courses</h2>
 
+        @if(!$cours->isEmpty())
         <div class="grid md:grid-cols-3 gap-10">
             @foreach ($cours as $coursItem)
             <x-card-cours :cours="$coursItem" />
             @endforeach
         </div>
+        @else
+        <p class="text-center text-gray-600">No courses available at the moment. Please check back later!</p>
+        @endif
 
     </section>
 

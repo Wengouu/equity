@@ -2,24 +2,29 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::view('/', 'home')
-->middleware(['auth'])
-->name('home');
+use App\Livewire\Home;
+use App\Livewire\Course;
 
-Route::view('dashboard', 'dashboard')
-    ->middleware(['auth', 'verified'])
-    ->name('dashboard');
+//accueil
+Route::get('/', Home::class)
+    ->middleware(['auth'])
+    ->name('home');
+
+//Détail d'un cours
+Route::get('course/{slug}', Course::class)
+    ->where('slug', '^[a-z0-9-]+$')
+    ->middleware(['auth'])
+    ->name('course.detail');
 
 
 Route::view('course', 'cours')
     ->middleware(['auth'])
     ->name('cours');
 
-//Détail d'un cours
-Route::view('course/{slug}', 'cours.show')
-    ->where('slug', '^[a-z0-9-]+$')
-    ->middleware(['auth'])
-    ->name('cours.show');
+//tableau de bord
+Route::view('dashboard', 'dashboard')
+    ->middleware(['auth', 'verified'])
+    ->name('dashboard');
 
 Route::view('profile', 'profile')
     ->middleware(['auth'])

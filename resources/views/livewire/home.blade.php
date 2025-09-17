@@ -1,15 +1,15 @@
-<x-app-layout class="bg-gray-50 text-gray-800">
+<div class="bg-gray-50 text-gray-800">
 
     <!-- HEADER / HERO -->
     <x-slot name="header">
         <div class="relative bg-indigo-600 text-white">
             <div class="max-w-7xl mx-auto px-6 py-20 text-center z-50 relative">
-                <h1 class="text-4xl md:text-6xl font-bold mb-6">Formations Equity the Board Game</h1>
-                <p class="text-lg md:text-xl mb-8">Apprenez à jouer et à maîtriser le jeu pas à pas grâce à nos cours
-                    simples et efficaces.</p>
+                <h1 class="text-4xl md:text-6xl font-bold mb-6">Equity the Board Game Courses</h1>
+                <p class="text-lg md:text-xl mb-8">Learn to play and master the game step by step with our simple and
+                    effective courses.</p>
                 <a href="#courses"
-                    class="bg-white text-indigo-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition">Découvrir
-                    les cours</a>
+                    class="bg-white text-indigo-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition">Discover
+                    the courses</a>
             </div>
             <img src="{{ asset('assets/images/header-bg.jpg') }}" alt="Header Background"
                 class="absolute inset-0 w-full h-full object-cover object-center z-0">
@@ -21,40 +21,45 @@
 
     <!-- COURS DISPONIBLES -->
     <section id="courses" class="max-w-7xl mx-auto px-6 py-20">
-        <h2 class="text-3xl font-bold text-center mb-12">Nos Formations</h2>
+        <h2 class="text-3xl font-bold text-center mb-12">Our Courses</h2>
 
-        <livewire:cours.show-cours />
+        <div class="grid md:grid-cols-3 gap-10">
+            @foreach ($cours as $coursItem)
+            <x-card-cours :cours="$coursItem" />
+            @endforeach
+        </div>
 
     </section>
 
     <!-- TEXTE EXPLICATIF -->
     <section class="bg-gray-100 py-20">
         <div class="max-w-4xl mx-auto px-6 text-center">
-            <h2 class="text-3xl font-bold mb-6">Pourquoi ce site ?</h2>
+            <h2 class="text-3xl font-bold mb-6">Why this site?</h2>
             <p class="text-lg leading-relaxed">
-                Notre objectif est de vous accompagner dans l’apprentissage d’Equity the Board Game.
-                Grâce à ces formations, vous pourrez progresser à votre rythme et découvrir toutes les subtilités du
-                jeu.
-                Que vous soyez débutant ou joueur confirmé, nos cours vous aideront à profiter pleinement de
-                l’expérience.
+                Our goal is to support you in learning Equity the Board Game.
+                With these courses, you can progress at your own pace and discover all the subtleties of the
+                game.
+                Whether you are a beginner or an experienced player, our courses will help you make the most of
+                your experience.
             </p>
         </div>
     </section>
 
     <!-- TESTIMONIALS -->
     <section class="max-w-7xl mx-auto px-6 py-20">
-        <h2 class="text-3xl font-bold text-center mb-12">Ils en parlent</h2>
+        <h2 class="text-3xl font-bold text-center mb-12">They talk about it</h2>
         <div class="grid md:grid-cols-3 gap-8">
             <div class="bg-white shadow-md rounded-2xl p-6">
-                <p class="italic">"Super clair et motivant ! J’ai enfin compris les règles sans me prendre la tête."</p>
+                <p class="italic">"Super clear and motivating! I finally understood the rules without getting
+                    overwhelmed."</p>
                 <div class="mt-4 font-bold">— Marie L.</div>
             </div>
             <div class="bg-white shadow-md rounded-2xl p-6">
-                <p class="italic">"Les cours m’ont aidé à améliorer mes stratégies et gagner plus souvent."</p>
+                <p class="italic">"The courses helped me improve my strategies and win more often."</p>
                 <div class="mt-4 font-bold">— Julien R.</div>
             </div>
             <div class="bg-white shadow-md rounded-2xl p-6">
-                <p class="italic">"Un must-have pour tous ceux qui veulent vraiment profiter du jeu !"</p>
+                <p class="italic">"A must-have for anyone who really wants to enjoy the game!"</p>
                 <div class="mt-4 font-bold">— Clara B.</div>
             </div>
         </div>
@@ -63,8 +68,8 @@
     <!-- FOOTER -->
     <footer class="bg-indigo-600 text-white py-10">
         <div class="max-w-7xl mx-auto px-6 text-center">
-            <p>&copy; {{ date('Y') }} Equity the Board Game - Tous droits réservés.</p>
+            <p>&copy; {{ date('Y') }} Equity the Board Game - all rights reserved.</p>
         </div>
     </footer>
 
-</x-app-layout>
+</div>

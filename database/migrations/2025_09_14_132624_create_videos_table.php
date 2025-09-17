@@ -16,9 +16,9 @@ return new class extends Migration
         Schema::create('videos', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(Module::class)->constrained()->cascadeOnDelete();
-            $table->string('titre');
+            $table->string('titre')->nullable();
             $table->string('fichier');
-            $table->text('transcription');
+            $table->text('transcription')->nullable();
             $table->boolean('publie')->default(false);
             $table->timestamps();
         });

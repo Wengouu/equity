@@ -37,6 +37,7 @@ class ModuleForm
                     ->label('Image du module')
                     ->image()
                     ->maxSize(1024)
+                    ->disk('public')
                     ->directory('modules-images')
                     ->nullable(),
                 Toggle::make('publie')

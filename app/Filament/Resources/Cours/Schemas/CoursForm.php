@@ -32,6 +32,7 @@ class CoursForm
                     ->label('Image du cours')
                     ->image()
                     ->maxSize(1024)
+                    ->disk('public')
                     ->directory('cours-images')
                     ->nullable(),
                 Toggle::make('publie')

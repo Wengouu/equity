@@ -1,3 +1,4 @@
 <div>
-    <h1>Liste des cours</h1>
+    <h1>Cours : {{ $cours->titre }}</h1>
+    <p>{{ $cours->description }}</p>
 </div>

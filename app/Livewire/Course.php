@@ -14,8 +14,13 @@ class Course extends Component
     {
         $cours = new Cours();
 
+        $cours = $cours->getUnCour($this->slug);
+
+        //le cours n'existe pas
+        if(!$cours) abort(404);
+
         return view('livewire.course', [
-            'cours' => $cours->getUnCour($this->slug),
+            'cours' => $cours,
         ]);
     }
 }

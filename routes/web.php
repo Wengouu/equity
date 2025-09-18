@@ -25,9 +25,9 @@ Route::get('course/{course_slug}/{module_slug}', ModuleLivewire::class)
     ->name('module.detail');
 
 
-Route::view('course', 'cours')
+Route::view('courses', ListeCourses::class)
     ->middleware(['auth'])
-    ->name('cours');
+    ->name('courses.list');
 
 //tableau de bord
 Route::view('dashboard', 'dashboard')

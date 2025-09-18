@@ -1,4 +1,7 @@
 <div class="max-w-5xl mx-auto p-6">
+
+    <x-breadcrumbs />
+
     @if (session('success'))
     <x-flash message="{{ session('success') }}" type="success" />
     @endif

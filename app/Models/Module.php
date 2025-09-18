@@ -10,6 +10,14 @@ class Module extends Model
 
     protected $guarded = ['id'];
 
+    //on récupère un module par son slug
+    public function getUnModule($slug)
+    {
+        return $this->where('slug', $slug)
+                    ->where('publie', true)
+                    ->first();
+    }
+
     //on récupère les modules d'un cours
     public function getModulesCours($cours_id)
     {

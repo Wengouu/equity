@@ -32,7 +32,7 @@ class VideoForm
                 FileUpload::make('fichier')
                     ->label('Fichier de la Vidéo')
                     ->disk('public')
-                    ->directory('videos')
+                    ->directory('modules-videos')
                     ->maxSize(50 * 1024) // en Ko, 50 Mo
                     ->required(),
                 MarkdownEditor::make('transcription')

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "39edd05c9b1e9a4a74011c70bf95490c",
+    "content-hash": "685e030989b5666a152d0d4d21f458a8",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -8229,6 +8229,69 @@
                 "source": "https://github.com/webmozarts/assert/tree/1.11.0"
             },
             "time": "2022-06-03T18:03:27+00:00"
+        },
+        {
+            "name": "wireui/breadcrumbs",
+            "version": "v3.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wireui/breadcrumbs.git",
+                "reference": "f4d8dffe09e0f164042bd31c6bd66afc85524397"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wireui/breadcrumbs/zipball/f4d8dffe09e0f164042bd31c6bd66afc85524397",
+                "reference": "f4d8dffe09e0f164042bd31c6bd66afc85524397",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "^10.0|^11.0|^12.0",
+                "livewire/livewire": "^3.0",
+                "php": "^8.2|^8.3|^8.4"
+            },
+            "require-dev": {
+                "larastan/larastan": "^3.0",
+                "laravel/pint": "^1.9",
+                "orchestra/testbench": "^10.0",
+                "pestphp/pest": "^3.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "aliases": [],
+                    "providers": [
+                        "WireUi\\Breadcrumbs\\ServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "WireUi\\Breadcrumbs\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Pedro Oliveira",
+                    "email": "pedro@wireui.dev"
+                }
+            ],
+            "description": "Breadcrumbs component for Laravel, Livewire, TallStack",
+            "keywords": [
+                "blade components",
+                "laravel components",
+                "livewire components",
+                "livewire-ui",
+                "wireui"
+            ],
+            "support": {
+                "issues": "https://github.com/wireui/breadcrumbs/issues",
+                "source": "https://github.com/wireui/breadcrumbs/tree/v3.3.0"
+            },
+            "time": "2025-03-02T22:29:05+00:00"
         },
         {
             "name": "wireui/heroicons",

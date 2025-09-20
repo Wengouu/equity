@@ -27,6 +27,7 @@
 
 <body class="font-sans antialiased">
     <div class="min-h-screen bg-gray-100">
+
         <livewire:layout.navigation />
 
         <!-- Page Heading -->
@@ -39,9 +40,12 @@
         @endif
 
         <!-- Page Content -->
-        <main>
+        <main class="mb-8">
             {{ $slot }}
         </main>
+
+        <livewire:layout.footer />
+
     </div>
 </body>
 

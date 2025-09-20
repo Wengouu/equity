@@ -8,9 +8,11 @@
     <h1 class="text-3xl font-bold text-gray-800 mb-6">Available Courses</h1>
 
     @if(!$cours->isEmpty())
-    <div class="grid md:grid-cols-3 gap-10">
+    <div class="flex flex-wrap gap-6">
         @foreach ($cours as $coursItem)
-        <x-card-cours :cours="$coursItem" />
+        <div class="flex-1 min-w-[300px] flex flex-col">
+            <x-card-cours :cours="$coursItem" />
+        </div>
         @endforeach
     </div>
     @else

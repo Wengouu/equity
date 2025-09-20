@@ -5,6 +5,8 @@
 - ajouter un temps en minutes pour chaque module
 - en déduire la somme total de minutes que dure un cours en additionnant tous les temps des modules
 - 404 personnalisée
+- ajouter image cours dans la div des cours
+- aligner le button en bas de la div des cours
 
 - ajouter table "instructeur" avec les infos de l'instructeur du cours (optionnel)
 - ajouter table "certification" si y'a une certification au bout du cours (appartient à un cours)

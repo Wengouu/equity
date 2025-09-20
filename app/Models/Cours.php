@@ -16,24 +16,13 @@ class Cours extends Model
         return $this->all()->where('publie', 1);
     }
 
-    //on recupère tous les cours d'un utilisateur
-    public function getCoursUtilisateur()
-    {
-        return $this->users()->where('user_id', auth()->user()->id)->get();
-    }
-
     //on recupère un cours
     public function getUnCour($slug)
     {
         return $this->where('slug', $slug)->first();
     }
 
-
-    public function users()
-    {
-        return $this->belongsToMany(User::class, 'cours_users');
-    }
-
+    //les modules du cours
     public function modules()
     {
         return $this->hasMany(Module::class);

@@ -18,19 +18,13 @@ class Module extends Model
                     ->first();
     }
 
-    //on récupère les modules d'un cours
-    public function getModulesCours($cours_id)
-    {
-        return $this->where('cours_id', $cours_id)
-                    ->orderBy('id', 'asc')
-                    ->get();
-    }
-
+    //le cours qui possède le module
     public function cours()
     {
         return $this->belongsTo(Cours::class);
     }
 
+    //les vidéos que possède le module
     public function videos()
     {
         return $this->hasMany(Video::class);

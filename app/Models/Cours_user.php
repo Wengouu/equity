@@ -18,4 +18,16 @@ class Cours_user extends Model
             'cours_id' => $courseId,
         ]);
     }
+
+    //les utilisateurs qui sont inscrits à au moins un cours
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    //les cours où au moins un utilisateur est inscrit
+    public function course()
+    {
+        return $this->belongsTo(Cours::class, 'cours_id');
+    }
 }

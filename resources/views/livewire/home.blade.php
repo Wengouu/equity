@@ -29,6 +29,9 @@
             <x-card-cours :cours="$coursItem" />
             @endforeach
         </div>
+        <div class="flex justify-center mt-10">
+            <x-button outline href="{{ route('courses.list') }}" label="See all courses" />
+        </div>
         @else
         <p class="text-center text-gray-600">No courses available at the moment. Please check back later!</p>
         @endif

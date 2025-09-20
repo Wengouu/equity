@@ -13,9 +13,9 @@ class ModuleLivewire extends Component
     public string $course_slug;
     public string $module_slug;
 
-    public Module $module;
-    public Video $video;
-    public Cours $cours;
+    public $module;
+    public $video;
+    public $cours;
 
     public function mount()
     {
@@ -42,7 +42,7 @@ class ModuleLivewire extends Component
         if(!$this->module) abort(404);
 
         //on recupère la vidéo et ses détails du module actuel
-        $this->video = $this->video->getVideoModule($this->module->id);
+        $this->video = $this->module->videos()->first();
     }
 
     public function render()

@@ -60,7 +60,7 @@ class Course extends Component
         if(!$this->cours) abort(404);
 
         //on recup les modules du cours
-        $this->modules = $this->modules->getModulesCours($this->cours->id);
+        $this->modules = $this->cours->modules()->get();
 
         //est-ce que l'utilisateur est inscrit au cours
         $isEnrolled = auth()->user()->isUserEnrolledInCourse($this->cours->id);

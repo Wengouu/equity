@@ -6,6 +6,7 @@ use App\Livewire\Home;
 use App\Livewire\Course;
 use App\Livewire\ModuleLivewire;
 use App\Livewire\ListeCourses;
+use App\Livewire\CoursesUser;
 
 //accueil
 Route::get('/', Home::class)
@@ -25,10 +26,15 @@ Route::get('course/{course_slug}/{module_slug}', ModuleLivewire::class)
     ->middleware(['auth'])
     ->name('module.detail');
 
-
+//liste des cours disponibles
 Route::get('courses', ListeCourses::class)
     ->middleware(['auth'])
     ->name('courses.list');
+
+//liste des cours dont l'utilisateur est inscrit
+Route::get('my-courses', CoursesUser::class)
+    ->middleware(['auth'])
+    ->name('courses.user');
 
 //tableau de bord
 Route::view('dashboard', 'dashboard')

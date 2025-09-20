@@ -10,14 +10,7 @@ class Video extends Model
 
     protected $guarded = ['id'];
 
-    //on récupère les vidéos d'un module
-    public function getVideoModule($moduleId)
-    {
-        return $this->where('module_id', $moduleId)
-                    ->where('publie', true)
-                    ->first();
-    }
-
+    //le module auquel appartient la vidéo
     public function module()
     {
         return $this->belongsTo(Module::class);

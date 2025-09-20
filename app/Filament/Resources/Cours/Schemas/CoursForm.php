@@ -8,6 +8,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Toggle;
+use Filament\Schemas\Components\Section;
 
 class CoursForm
 {
@@ -35,9 +36,13 @@ class CoursForm
                     ->disk('public')
                     ->directory('cours-images')
                     ->nullable(),
-                Toggle::make('publie')
-                    ->label('Directly Publish Course ?')
-                    ->default(true)
+                Section::make('Directly Publish Course')
+                ->description('If unchecked, the course page will be accessible only via the URL and will not be visible to users until published')
+                ->schema([
+                    Toggle::make('publie')
+                    ->label('Publish ?') 
+                        ->default(true),
+                ]),
             ]);
     }
 }

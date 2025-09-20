@@ -13,9 +13,7 @@ class Module extends Model
     //on récupère un module par son slug
     public function getUnModule($slug)
     {
-        return $this->where('slug', $slug)
-                    ->where('publie', true)
-                    ->first();
+        return $this->where('slug', $slug)->first();
     }
 
     //le cours qui possède le module

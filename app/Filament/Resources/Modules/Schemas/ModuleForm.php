@@ -9,6 +9,7 @@ use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Toggle;
 use Filament\Forms\Components\Select;
+use Filament\Schemas\Components\Section;
 
 class ModuleForm
 {
@@ -33,6 +34,13 @@ class ModuleForm
                     ->rows(3)
                     ->required()
                     ->maxLength(65535),
+                Section::make('Directly Publish Module')
+                ->description('If unchecked, the module page will be accessible only via the URL and will not be visible to users until published')
+                ->schema([
+                    Toggle::make('publie')
+                    ->label('Publish ?') 
+                        ->default(true),
+                ]),
                 FileUpload::make('image')
                     ->label('Module Image')
                     ->image()
@@ -40,9 +48,6 @@ class ModuleForm
                     ->disk('public')
                     ->directory('modules-images')
                     ->nullable(),
-                Toggle::make('publie')
-                    ->label('Directly Publish Module ?')
-                    ->default(true)
             ]);
     }
 }

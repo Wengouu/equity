@@ -8,7 +8,6 @@ use Filament\Actions\EditAction;
 use Filament\Tables\Table;
 
 use Filament\Tables\Columns\TextColumn;
-use Filament\Tables\Columns\IconColumn;
 
 class VideosTable
 {
@@ -20,7 +19,6 @@ class VideosTable
                 TextColumn::make('titre')->label('Video Title')->searchable()->sortable(),
                 // TextColumn::make('fichier')->label('Video File Name')->searchable()->sortable(),
                 TextColumn::make('transcription')->label('Video Transcription')->limit(50)->wrap(),
-                IconColumn::make('publie')->label('Is Published ?')->boolean()->sortable(),
                 TextColumn::make('created_at')->label('Created On')->dateTime('d/m/Y H:i')->sortable(),
                 TextColumn::make('updated_at')->label('Updated On')->dateTime('d/m/Y H:i')->sortable(),
             ])

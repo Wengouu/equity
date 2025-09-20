@@ -22,6 +22,12 @@ class Cours extends Model
         return $this->where('slug', $slug)->first();
     }
 
+    //on recup les modules publies du cours
+    public function getModulesPublies()
+    {
+        return $this->modules()->where('publie', 1)->get();
+    }
+
     //les modules du cours
     public function modules()
     {

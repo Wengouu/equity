@@ -7,6 +7,8 @@ use Filament\Forms\Components\MarkdownEditor;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
+use Filament\Schemas\Components\Section;
+use Filament\Schemas\Components\Text;
 use Filament\Schemas\Schema;
 
 //TODO :
@@ -29,18 +31,16 @@ class VideoForm
                     ->label('Video Title')
                     ->nullable()
                     ->maxLength(255),
+                MarkdownEditor::make('transcription')
+                    ->label('Video Transcription')
+                    ->nullable(),
                 FileUpload::make('fichier')
                     ->label('Video File')
                     ->disk('public')
                     ->directory('modules-videos')
                     ->maxSize(50 * 1024) // en Ko, 50 Mo
                     ->required(),
-                MarkdownEditor::make('transcription')
-                    ->label('Video Transcription')
-                    ->nullable(),
-                Toggle::make('publie')
-                    ->label('Directly Publish Video ?')
-                    ->default(true),
+                Text::make('Only one video per module')
             ]);
     }
 }

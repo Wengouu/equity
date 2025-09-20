@@ -29,17 +29,17 @@ class ModuleLivewire extends Component
         //le cours n'existe pas, on affiche une erreur 404
         if(!$this->cours) abort(404);
 
-        //on vérifie si l'utilisateur est inscrit au cours du module
-        if (!auth()->user()->isUserEnrolledInCourse($this->cours->id)) {
-            return redirect()->route('course.detail', ['slug' => $this->course_slug])
-            ->with('error', 'You must be enrolled in the course to access this module.');
-        }
-
         //on recupère le module actuel
         $this->module = $this->module->getUnModule($this->module_slug);
 
         //le module n'existe pas, on affiche une erreur 404
         if(!$this->module) abort(404);
+
+        //on vérifie si l'utilisateur est inscrit au cours du module
+        if ($this->module->publie && !auth()->user()->isUserEnrolledInCourse($this->cours->id)) {
+            return redirect()->route('course.detail', ['slug' => $this->course_slug])
+            ->with('error', 'You must be enrolled in the course to access this module.');
+        }
 
         //on recupère la vidéo et ses détails du module actuel
         $this->video = $this->module->videos()->first();

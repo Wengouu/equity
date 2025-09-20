@@ -18,31 +18,31 @@ class ModuleForm
             ->components([
                 Select::make('cours_id')
                 ->relationship('cours', 'titre')
-                ->label('Cours associé au module')
+                ->label('Associated Course')
                 ->required(),
                 TextInput::make('titre')
-                    ->label('Titre du module')
+                    ->label('Module Title')
                     ->required()
                     ->maxLength(255),
                 TextInput::make('slug')
-                    ->label('Slug du module (titre dans l\'URL)')
+                    ->label('Module Slug (what will appear in the URL)')
                     ->required()
                     ->maxLength(255),
                 Textarea::make('description')
-                    ->label('Description du module')
+                    ->label('Module Description')
                     ->rows(3)
                     ->required()
                     ->maxLength(65535),
                 FileUpload::make('image')
-                    ->label('Image du module')
+                    ->label('Module Image')
                     ->image()
                     ->maxSize(1024)
                     ->disk('public')
                     ->directory('modules-images')
                     ->nullable(),
                 Toggle::make('publie')
-                    ->label('Publier le module')
-                    ->default(false)
+                    ->label('Directly Publish Module ?')
+                    ->default(true)
             ]);
     }
 }

@@ -24,6 +24,7 @@ class AdminPanelProvider extends PanelProvider
     public function panel(Panel $panel): Panel
     {
         return $panel
+            ->authGuard('admin') // Use the custom guard
             ->default()
             ->id('admin')
             ->path('admin-equity')

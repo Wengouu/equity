@@ -8,6 +8,7 @@ use Filament\Actions\EditAction;
 use Filament\Tables\Table;
 
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Columns\IconColumn;
 
 class UsersTable
 {
@@ -15,10 +16,10 @@ class UsersTable
     {
         return $table
             ->columns([
-                TextColumn::make('name')->label('Nom')->searchable()->sortable(),
-                TextColumn::make('email')->label('Email')->searchable()->sortable(),
-                TextColumn::make('created_at')->label('Inscrit le')->dateTime('d/m/Y H:i')->sortable(),
-                TextColumn::make('updated_at')->label('Mis à jour le')->dateTime('d/m/Y H:i')->sortable(),
+                TextColumn::make('email')->label('User Email')->searchable()->sortable(),
+                IconColumn::make('must_reset_password')->label('Must Reset Password ?')->boolean()->sortable(),
+                TextColumn::make('created_at')->label('Added on')->dateTime('d/m/Y H:i')->sortable(),
+                TextColumn::make('updated_at')->label('Updated on')->dateTime('d/m/Y H:i')->sortable(),
             ])
             ->filters([
                 //

@@ -13,16 +13,16 @@ class UserForm
         return $schema
             ->components([
                 TextInput::make('name')
-                    ->label("Nom / Pseudo de l'utilisateur")
+                    ->label("Name of the User")
                     ->maxLength(255)
                     ->required(),
                 TextInput::make('email')
-                    ->label("Email de l'utilisateur")
+                    ->label("Email of the User")
                     ->email()
                     ->maxLength(255)
                     ->required(),
                 TextInput::make('password')
-                    ->label("Mot de passe de l'utilisateur")
+                    ->label("Password of the User (will be reset on first login)")
                     ->password()
                     ->maxLength(255)
                     ->required(),

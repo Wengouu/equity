@@ -16,13 +16,13 @@ class VideosTable
     {
         return $table
             ->columns([
-                TextColumn::make('module.titre')->label('Module associé')->searchable()->sortable(),
-                TextColumn::make('titre')->label('Titre de la vidéo')->searchable()->sortable(),
-                // TextColumn::make('fichier')->label('Nom du fichier de la vidéo')->searchable()->sortable(),
-                TextColumn::make('transcription')->label('Transcription textuelle de la vidéo')->limit(50)->wrap(),
-                IconColumn::make('publie')->label('Publié')->boolean()->sortable(),
-                TextColumn::make('created_at')->label('Créé le')->dateTime('d/m/Y H:i')->sortable(),
-                TextColumn::make('updated_at')->label('Mis à jour le')->dateTime('d/m/Y H:i')->sortable(),
+                TextColumn::make('module.titre')->label('Associated Module')->searchable()->sortable(),
+                TextColumn::make('titre')->label('Video Title')->searchable()->sortable(),
+                // TextColumn::make('fichier')->label('Video File Name')->searchable()->sortable(),
+                TextColumn::make('transcription')->label('Video Transcription')->limit(50)->wrap(),
+                IconColumn::make('publie')->label('Is Published ?')->boolean()->sortable(),
+                TextColumn::make('created_at')->label('Created On')->dateTime('d/m/Y H:i')->sortable(),
+                TextColumn::make('updated_at')->label('Updated On')->dateTime('d/m/Y H:i')->sortable(),
             ])
             ->filters([
                 //

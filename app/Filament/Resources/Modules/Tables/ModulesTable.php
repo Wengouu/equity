@@ -16,12 +16,12 @@ class ModulesTable
     {
         return $table
             ->columns([
-                TextColumn::make('cours.titre')->label('Cours associé')->searchable()->sortable(),
-                TextColumn::make('titre')->label('Titre du module')->searchable()->sortable(),
-                TextColumn::make('description')->label('Description du module')->limit(50)->wrap(),
-                IconColumn::make('publie')->label('Publié')->boolean()->sortable(),
-                TextColumn::make('created_at')->label('Créé le')->dateTime('d/m/Y H:i')->sortable(),
-                TextColumn::make('updated_at')->label('Mis à jour le')->dateTime('d/m/Y H:i')->sortable(),
+                TextColumn::make('cours.titre')->label('Associated Course')->searchable()->sortable(),
+                TextColumn::make('titre')->label('Module Title')->searchable()->sortable(),
+                TextColumn::make('description')->label('Module Description')->limit(50)->wrap(),
+                IconColumn::make('publie')->label('Is Published ?')->boolean()->sortable(),
+                TextColumn::make('created_at')->label('Created On')->dateTime('d/m/Y H:i')->sortable(),
+                TextColumn::make('updated_at')->label('Updated On')->dateTime('d/m/Y H:i')->sortable(),
             ])
             ->filters([
                 //

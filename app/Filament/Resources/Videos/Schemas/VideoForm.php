@@ -23,24 +23,24 @@ class VideoForm
             ->components([
                 Select::make('module_id')
                     ->relationship('module', 'titre')
-                    ->label('Module associé à la vidéo')
+                    ->label('Associated Module')
                     ->required(),
                 TextInput::make('titre')
-                    ->label('Titre de la vidéo')
+                    ->label('Video Title')
                     ->nullable()
                     ->maxLength(255),
                 FileUpload::make('fichier')
-                    ->label('Fichier de la Vidéo')
+                    ->label('Video File')
                     ->disk('public')
                     ->directory('modules-videos')
                     ->maxSize(50 * 1024) // en Ko, 50 Mo
                     ->required(),
                 MarkdownEditor::make('transcription')
-                    ->label('Transcription de la vidéo')
+                    ->label('Video Transcription')
                     ->nullable(),
                 Toggle::make('publie')
-                    ->label('Publier la vidéo')
-                    ->default(false),
+                    ->label('Directly Publish Video ?')
+                    ->default(true),
             ]);
     }
 }

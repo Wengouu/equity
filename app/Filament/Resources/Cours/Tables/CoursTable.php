@@ -16,11 +16,11 @@ class CoursTable
     {
         return $table
             ->columns([
-                TextColumn::make('titre')->label('Titre du cours')->searchable()->sortable(),
-                TextColumn::make('description')->label('Description du cours')->limit(50)->wrap(),
-                IconColumn::make('publie')->label('Publié')->boolean()->sortable(),
-                TextColumn::make('created_at')->label('Créé le')->dateTime('d/m/Y H:i')->sortable(),
-                TextColumn::make('updated_at')->label('Mis à jour le')->dateTime('d/m/Y H:i')->sortable(),
+                TextColumn::make('titre')->label('Course Title')->searchable()->sortable(),
+                TextColumn::make('description')->label('Course Description')->limit(50)->wrap(),
+                IconColumn::make('publie')->label('Is Published ?')->boolean()->sortable(),
+                TextColumn::make('created_at')->label('Created On')->dateTime('d/m/Y H:i')->sortable(),
+                TextColumn::make('updated_at')->label('Updated On')->dateTime('d/m/Y H:i')->sortable(),
             ])
             ->filters([
                 //

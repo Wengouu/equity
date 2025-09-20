@@ -16,28 +16,28 @@ class CoursForm
         return $schema
             ->components([
                 TextInput::make('titre')
-                    ->label('Titre du cours')
+                    ->label('Course Title')
                     ->required()
                     ->maxLength(255),
                 TextInput::make('slug')
-                    ->label('Slug du cours (titre dans l\'URL)')
+                    ->label('Course Slug (what will appear in the URL)')
                     ->required()
                     ->maxLength(255),
                 Textarea::make('description')
-                    ->label('Description du cours')
+                    ->label('Course Description')
                     ->rows(3)
                     ->required()
                     ->maxLength(65535),
                 FileUpload::make('image')
-                    ->label('Image du cours')
+                    ->label('Course Image')
                     ->image()
                     ->maxSize(1024)
                     ->disk('public')
                     ->directory('cours-images')
                     ->nullable(),
                 Toggle::make('publie')
-                    ->label('Publier le cours')
-                    ->default(false)
+                    ->label('Directly Publish Course ?')
+                    ->default(true)
             ]);
     }
 }

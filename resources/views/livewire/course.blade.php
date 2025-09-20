@@ -1,16 +1,25 @@
 <div class="max-w-5xl mx-auto p-6">
 
-    <x-breadcrumbs />
+    <x-breadcrumb :links="[
+    ['label' => 'Homepage', 'url' => route('home')],
+    ['label' => 'Courses', 'url' => route('courses.list')],
+    ['label' => $cours->titre]
+    ]" />
+
 
     @if (session('success'))
-    <x-flash message="{{ session('success') }}" type="success" />
+    <div class="mt-4">
+        <x-flash message="{{ session('success') }}" type="success" />
+    </div>
     @endif
 
     @if (session('error'))
-    <x-flash message="{{ session('error') }}" type="error" />
+    <div class="mt-4">
+        <x-flash message="{{ session('error') }}" type="error" />
+    </div>
     @endif
     <!-- Course Header -->
-    <div class="mb-8">
+    <div class="my-8">
         <h1 class="text-3xl font-bold text-gray-800">{{ $cours->titre }}</h1>
         <p class="mt-2 text-gray-600">{{ $cours->description }}</p>
     </div>
@@ -25,6 +34,7 @@
     </div>
 
     <!-- Modules List -->
+    <h2 class="text-2xl font-semibold text-gray-800 mb-4">Modules</h2>
     <div class="space-y-6">
         @foreach($modules as $ordre => $module)
         <a href="{{ route('module.detail', [$cours->slug, $module->slug]) }}" class="block">

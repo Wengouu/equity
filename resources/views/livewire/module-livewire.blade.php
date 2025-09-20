@@ -1,4 +1,12 @@
 <div class="max-w-5xl mx-auto p-6 space-y-8">
+
+    <x-breadcrumb :links="[
+    ['label' => 'Homepage', 'url' => route('home')],
+    ['label' => 'Courses', 'url' => route('courses.list')],
+    ['label' => $cours->titre, 'url' => route('course.detail', $cours->slug)],
+    ['label' => $module->titre]
+    ]" />
+
     <!-- Module Header -->
     <div class="space-y-2">
         <h1 class="text-3xl font-bold text-gray-800">{{ $module->titre }}</h1>

@@ -13,9 +13,9 @@ class ModuleLivewire extends Component
     public string $course_slug;
     public string $module_slug;
 
-    private $module;
-    private $video;
-    private $cours;
+    public Module $module;
+    public Video $video;
+    public Cours $cours;
 
     public function mount()
     {
@@ -47,9 +47,6 @@ class ModuleLivewire extends Component
 
     public function render()
     {
-        return view('livewire.module-livewire', [
-            'video' => $this->video,
-            'module' => $this->module,
-        ]);
+        return view('livewire.module-livewire');
     }
 }

@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Livewire\Home;
 use App\Livewire\Course;
 use App\Livewire\ModuleLivewire;
+use App\Livewire\ListeCourses;
 
 //accueil
 Route::get('/', Home::class)
@@ -25,7 +26,7 @@ Route::get('course/{course_slug}/{module_slug}', ModuleLivewire::class)
     ->name('module.detail');
 
 
-Route::view('courses', ListeCourses::class)
+Route::get('courses', ListeCourses::class)
     ->middleware(['auth'])
     ->name('courses.list');
 

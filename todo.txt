@@ -1,3 +1,29 @@
+- Régler souci breadcrumb livewire (Course.php)
+
+- Afficher image cours sur la page du détail du cours
+- Liste des cours où l'utilisateur s'est inscrit
+- Dans filament, ajout table "cours_user" (pour désinscrire des utilisateur d'un cours ou les ajouter par exemple)
+- Créer un table "modules_user" pour savoir quand un utilisateur a commencé un module, et quand il l'a terminer
+- ajouter bouton "Suivant" et "précedent" sur une page de module (suivant comptabilise le module comme terminé)
+- ajouter un temps en minutes pour chaque module
+- en déduire la somme total de minutes que dure un cours en additionnant tous les temps des modules
+
+- ajouter table "instructeur" avec les infos de l'instructeur du cours (optionnel)
+- ajouter table "certification" si y'a une certification au bout du cours (appartient à un cours)
+
+- S'assure que le site n'est pas indexé sur les moteurs de recherche (robots.textuel)
+
+
+
+
+
+
+
+
+
+
+
+
 Laravel :
 
 Vues

@@ -14,20 +14,26 @@ class Course extends Component
 {
     public string $slug;
 
+    private $cours;
+    private $modules;
+
+    public function mount(string $slug)
+    {
+        $this->slug = $slug;
+    }
+
     public function enroll($courseId)
     {
         $course_user = new Cours_user();
 
         //on vérifie que l'utilisateur est authentifié
         if(!auth()->check()) {
-            session()->flash('error', 'You must be logged in to enroll in a course.');
-            return;
+            return redirect()->route('login')->with('error', 'You must be logged in to enroll.');
         }
 
         //vérifie si l'utilisateur est déjà inscrit
         if(auth()->user()->isUserEnrolledInCourse($courseId)) {
-            session()->flash('error', 'You are already enrolled in this course.');
-            return;
+            return redirect()->route('course.detail', $courseId)->with('error', 'You are already enrolled.');
         }
 
         //on l'inscrit au cours
@@ -36,30 +42,32 @@ class Course extends Component
         } catch (\Exception $e) {
             // Gérer l'exception si nécessaire
             Log::error('Error enrolling user in course: '.$e->getMessage());
-            session()->flash('error', 'An error occurred. Please try again.');
-            return;
+            return redirect()->back()->with('error', 'An error occurred. Please try again.');
         }
 
-        return session()->flash('success', 'You have successfully enrolled in the course!');
+         return redirect()->route('course.detail', $this->slug)->with('success', 'You have successfully enrolled!');
     }
 
     public function render()
     {
-        $cours = new Cours();
-        $modules = new Module();
+        $this->cours = new Cours();
+        $this->modules = new Module();
 
-        $cours = $cours->getUnCour($this->slug);
-
-        $modules = $modules->getModulesCours($cours->id);
-        
-        $isEnrolled = auth()->user()->isUserEnrolledInCourse($cours->id);
+        //on recup le cours
+        $this->cours = $this->cours->getUnCour($this->slug);
 
         //le cours n'existe pas
-        if(!$cours) abort(404);
+        if(!$this->cours) abort(404);
+
+        //on recup les modules du cours
+        $this->modules = $this->modules->getModulesCours($this->cours->id);
+
+        //est-ce que l'utilisateur est inscrit au cours
+        $isEnrolled = auth()->user()->isUserEnrolledInCourse($this->cours->id);
 
         return view('livewire.course', [
-            'cours' => $cours,
-            'modules' => $modules,
+            'cours' => $this->cours,
+            'modules' => $this->modules,
             'isEnrolled' => $isEnrolled,
         ]);
     }

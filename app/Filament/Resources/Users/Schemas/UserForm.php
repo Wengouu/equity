@@ -23,7 +23,6 @@ class UserForm
                     ->required(),
                 TextInput::make('password')
                     ->label("Password of the User (will be reset on first login)")
-                    ->password()
                     ->maxLength(255)
                     ->required(),
             ]);

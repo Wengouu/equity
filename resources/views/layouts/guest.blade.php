@@ -14,6 +14,8 @@
 
     <!-- Scripts -->
     @vite(['resources/css/app.css'])
+    <wireui:scripts />
+    @livewireStyles
 </head>
 
 <body class="font-sans text-gray-900 antialiased">
@@ -28,6 +30,7 @@
             {{ $slot }}
         </div>
     </div>
+    @livewireScripts
 </body>
 
 </html>

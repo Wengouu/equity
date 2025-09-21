@@ -1,23 +1,21 @@
 <div class="bg-gray-50 text-gray-800">
 
     <!-- HEADER / HERO -->
-    <x-slot name="header">
-        <div class="relative bg-indigo-600 text-white">
-            <div class="max-w-7xl mx-auto px-6 py-20 text-center z-50 relative">
-                <h1 class="text-4xl md:text-6xl font-bold mb-6">Equity the Board Game Courses</h1>
-                <p class="text-lg md:text-xl mb-8">Learn to play and master the game step by step with our simple and
-                    effective courses.</p>
-                <a href="#courses"
-                    class="bg-white text-indigo-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition">Discover
-                    the courses</a>
-            </div>
-            <img src="{{ asset('assets/images/header-bg.jpg') }}" alt="Header Background"
-                class="absolute inset-0 w-full h-full object-cover object-center z-0">
-            <div class="absolute inset-0 bg-gradient-to-t from-indigo-900/70 to-indigo-600 opacity-60"></div>
-            {{-- <img src="{{ asset('assets/images/logo.png') }}" alt="Logo de Equity The Board Game"
-                class="absolute right-10 bottom-10 w-32 opacity-80"> --}}
+    <div class="relative bg-indigo-600 text-white">
+        <div class="max-w-7xl mx-auto px-6 py-20 text-center relative z-10">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">Equity the Board Game Courses</h1>
+            <p class="text-lg md:text-xl mb-8">Learn to play and master the game step by step with our simple and
+                effective courses.</p>
+            <a href="#courses"
+                class="bg-white text-indigo-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition">Discover
+                the courses</a>
         </div>
-    </x-slot>
+        <img src="{{ asset('assets/images/header-bg.jpg') }}" alt="Header Background"
+            class="absolute inset-0 w-full h-full object-cover object-center z-0">
+        <div class="absolute inset-0 bg-gradient-to-t from-indigo-900/70 to-indigo-600 opacity-60"></div>
+        {{-- <img src="{{ asset('assets/images/logo.png') }}" alt="Logo de Equity The Board Game"
+            class="absolute right-10 bottom-10 w-32 opacity-80"> --}}
+    </div>
 
     <!-- COURS DISPONIBLES -->
     <section id="courses" class="max-w-7xl mx-auto px-6 py-20">

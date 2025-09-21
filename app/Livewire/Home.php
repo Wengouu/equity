@@ -8,12 +8,16 @@ use App\Models\Cours;
 
 class Home extends Component
 {
+    public $cours;
+
+    public function mount()
+    {
+        $this->cours = new Cours();
+        $this->cours = $this->cours->getCoursPublie();
+    }
+    
     public function render()
     {
-       $cours = new Cours();
-
-        return view('livewire.home', [
-            'cours' => $cours->getCoursPublie(),
-        ]);
+        return view('livewire.home');
     }
 }

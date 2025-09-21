@@ -16,6 +16,20 @@ class Module extends Model
         return $this->where('slug', $slug)->first();
     }
 
+    public function getModulePrecedent($coursId, $moduleId)
+    {
+        return $this->where('cours_id', $coursId)
+            ->where('id', '<',  $moduleId)
+            ->first();
+    }
+
+    public function getModuleSuivant($coursId, $moduleId)
+    {
+        return $this->where('cours_id', $coursId)
+            ->where('id', '>',  $moduleId)
+            ->first();
+    }
+
     //le cours qui possède le module
     public function cours()
     {

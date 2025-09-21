@@ -19,6 +19,7 @@ class ModulesTable
                 TextColumn::make('cours.titre')->label('Associated Course')->searchable()->sortable(),
                 TextColumn::make('titre')->label('Module Title')->searchable()->sortable(),
                 TextColumn::make('description')->label('Module Description')->limit(50)->wrap(),
+                TextColumn::make('time_minutes')->label('Estimated Time (minutes)')->sortable(),
                 IconColumn::make('publie')->label('Is Published ?')->boolean()->sortable(),
                 TextColumn::make('created_at')->label('Created On')->dateTime('d/m/Y H:i')->sortable(),
                 TextColumn::make('updated_at')->label('Updated On')->dateTime('d/m/Y H:i')->sortable(),

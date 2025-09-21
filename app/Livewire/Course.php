@@ -59,6 +59,9 @@ class Course extends Component
         //le cours n'existe pas
         if(!$this->cours) abort(404);
 
+        //temps du cours
+        $this->cours->total_time = $this->cours->getTempsTotal();
+
         //on recup les modules du cours
         $this->modules = $this->cours->getModulesPublies();
 

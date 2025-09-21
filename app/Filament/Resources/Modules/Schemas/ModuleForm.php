@@ -34,6 +34,11 @@ class ModuleForm
                     ->rows(3)
                     ->required()
                     ->maxLength(65535),
+                TextInput::make('time_minutes')
+                    ->label('Estimated Time to Complete (in minutes)')
+                    ->numeric()
+                    ->required()
+                    ->minValue(1),
                 Section::make('Directly Publish Module')
                 ->description('If unchecked, the module page will be accessible only via the URL and will not be visible to users until published')
                 ->schema([

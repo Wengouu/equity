@@ -1,12 +1,10 @@
 - Dans filament, ajout table "cours_user" (pour désinscrire des utilisateur d'un cours ou les ajouter par exemple)
 - Créer un table "modules_user" pour savoir quand un utilisateur a commencé un module, et quand il l'a terminer
 - ajouter bouton "Suivant" et "précedent" sur une page de module (suivant comptabilise le module comme terminé)
-- ajouter un temps en minutes pour chaque module
-- en déduire la somme total de minutes que dure un cours en additionnant tous les temps des modules
 - 404 personnalisée
-- ajouter image cours dans la div des cours
 - aligner le button en bas de la div des cours
 - augmenter la limite de file upload dans le php ini
+- finir la homepage
 - faire la doc equity
 
 - ajouter table "instructeur" avec les infos de l'instructeur du cours (optionnel)

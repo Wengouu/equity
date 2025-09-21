@@ -13,6 +13,9 @@ class ModuleLivewire extends Component
     public string $course_slug;
     public string $module_slug;
 
+    public $previousModule;
+    public $nextModule;
+
     public $module;
     public $video;
     public $cours;
@@ -31,6 +34,12 @@ class ModuleLivewire extends Component
 
         //on recupère le module actuel
         $this->module = $this->module->getUnModule($this->module_slug);
+
+        //on récupère le module précédent
+        $this->previousModule = $this->module->getModulePrecedent($this->cours->id, $this->module->id);
+
+        //on récupère le module suivant
+        $this->nextModule = $this->module->getModuleSuivant($this->cours->id, $this->module->id);
 
         //le module n'existe pas, on affiche une erreur 404
         if(!$this->module) abort(404);

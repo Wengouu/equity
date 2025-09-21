@@ -29,6 +29,9 @@
         <div class="my-8">
             <h1 class="text-3xl font-bold text-gray-800">{{ $cours->titre }}</h1>
             <p class="mt-2 text-gray-600">{{ $cours->description }}</p>
+            @if($cours->total_time > 0)
+            <p class="mt-4 text-gray-500 font-semibold text-base">Total Duration: {{ $cours->total_time }} minutes</p>
+            @endif
         </div>
 
         <!-- Enrollment Section -->
@@ -47,7 +50,7 @@
             <p class="text-gray-600">No modules available for this course. Come back later!</p>
             @else
             @foreach($modules as $ordre => $module)
-            <a href="{{ route('module.detail', [$cours->slug, $module->slug]) }}" class="block">
+            <div class="block space-y-6">
                 <div class="flex items-start gap-4 bg-white shadow rounded-2xl p-4">
                     <div class="text-2xl font-bold text-gray-600 m-auto w-8">
                         {{ $ordre + 1 }}
@@ -62,20 +65,22 @@
                     <div class="flex-1">
                         <h2 class="text-lg font-semibold text-gray-800">{{ $module->titre }}</h2>
                         <p class="text-gray-600 text-sm">{{ $module->description }}</p>
+                        @if($module->time_minutes > 0)
+                        <p class="mt-2 text-gray-500 text-xs">Duration: {{ $module->time_minutes }} minutes</p>
+                        @endif
+                        <p class="mt-2 flex gap-x-1 items-center text-gray-500 text-xs">Completed:
+                            <x-heroicon-c-check-circle class="text-green-600 w-4" />
+                        </p>
                     </div>
 
-                    <!-- Progress Indicator -->
-                    @if($isEnrolled)
-                    {{-- @if($user->hasCompleted($module))
-                    <span class="text-green-600 text-xl">✔️</span>
-                    @else --}}
-                    <span class="text-gray-400 text-xl">•</span>
-                    {{-- @endif --}}
-                    @endif
+                    <div class="flex-none mt-auto">
+                        <x-button spinner="startModule" primary outline
+                            href="{{ route('module.detail', [$cours->slug, $module->slug]) }}" label="View Module" />
+                    </div>
                 </div>
-            </a>
-            @endforeach
-            @endif
+                </a>
+                @endforeach
+                @endif
+            </div>
         </div>
     </div>
-</div>

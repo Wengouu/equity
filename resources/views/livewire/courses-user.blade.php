@@ -1,3 +1,5 @@
+@section('title', "My Courses | ".config('app.name_2'))
+
 <div class="relative max-w-5xl mx-auto p-6">
 
     <x-breadcrumb :links="[

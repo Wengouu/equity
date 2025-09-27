@@ -28,6 +28,6 @@ class Cours_user extends Model
     //les cours où au moins un utilisateur est inscrit
     public function course()
     {
-        return $this->belongsTo(Cours::class, 'cours_id');
+        return $this->belongsTo(Cours::class);
     }
 }

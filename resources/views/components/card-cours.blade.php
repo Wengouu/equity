@@ -1,5 +1,3 @@
-@props(['cours'])
-
 <x-card title="{{ $cours->titre }}" class="relative flex flex-col h-full rounded-xl">
 
     @if($cours->image)
@@ -7,7 +5,7 @@
         class="absolute inset-0 w-full h-full object-cover opacity-10 blur-0">
     @endif
 
-    <div class="relative z-30">
+    <div class="relative z-30 flex flex-col h-full">
         <div>
             <x-slot name="title" class="font-extrabold text-lg">{{ $cours->titre }}</x-slot>
 
@@ -23,13 +21,13 @@
                         min.</span></p>
                 @endif
                 @if($cours->modules_count > 0)
-                <p class="text-gray-600 text-sm">Modules: <span class="font-semibold">{{ $cours->modules_count
-                        }}</span></p>
+                <p class="text-gray-600 text-sm">Modules: <span class="font-semibold">{{ $cours->modules_count }}</span>
+                </p>
                 @endif
             </div>
         </div>
 
-        <!-- Bouton collé en bas -->
+        <!-- Bouton toujours en bas -->
         <div class="mt-auto">
             <x-button primary href="{{ route('course.detail', $cours->slug) }}">
                 Begin the course

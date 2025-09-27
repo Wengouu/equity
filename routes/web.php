@@ -37,9 +37,9 @@ Route::get('my-courses', CoursesUser::class)
     ->name('courses.user');
 
 //tableau de bord
-Route::view('dashboard', 'dashboard')
-    ->middleware(['auth', 'verified'])
-    ->name('dashboard');
+// Route::view('dashboard', 'dashboard')
+//     ->middleware(['auth', 'verified'])
+//     ->name('dashboard');
 
 Route::view('profile', 'profile')
     ->middleware(['auth'])

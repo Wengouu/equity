@@ -1,3 +1,5 @@
+@section('title', "$module->titre ($cours->titre) | ".config('app.name_2'))
+
 <div class="max-w-5xl mx-auto p-6 space-y-8">
 
     <x-breadcrumb :links="[
@@ -49,7 +51,7 @@
         <div></div>
         @endif
         @if($nextModule)
-        <a href="{{ route('module.detail', [$cours->slug, $nextModule->slug]) }}"
-            class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">Next Module →</a>
+        <x-button label="Next Module →" primary spinner="completeModule"
+            wire:click="completeModule({{ $cours->id }}, {{ $module->id }}, '{{ $cours->slug }}', '{{ $nextModule->slug }}')" />
         @endif
     </div>

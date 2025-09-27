@@ -1,8 +1,10 @@
-<div class="relative h-screen w-full">
+@section('title', "$cours->titre - Course | ".config('app.name_2'))
+
+<div class="relative w-full">
 
     @if($cours->image)
     <img src="{{ asset('storage/' . $cours->image) }}" alt="{{ $cours->titre }}"
-        class="absolute inset-0 w-full h-full object-cover opacity-10 blur-sm">
+        class="absolute inset-0 w-full h-full min-h-screen object-cover opacity-10 blur-sm">
     @endif
 
     <div class="relative max-w-5xl mx-auto p-6 z-10">
@@ -44,7 +46,12 @@
         </div>
 
         <!-- Modules List -->
-        <h2 class="text-2xl font-semibold text-gray-800 mb-4">Modules</h2>
+        <h2 class="text-2xl font-semibold text-gray-800 mb-4">Modules
+            @if($isEnrolled)
+            <span class="text-xl font-normal">({{ count($completedModules) }} / {{ $modules->count() }}
+                completed)</span>
+            @endif
+        </h2>
         <div class="space-y-6">
             @if($modules->isEmpty())
             <p class="text-gray-600">No modules available for this course. Come back later!</p>
@@ -69,7 +76,12 @@
                         <p class="mt-2 text-gray-500 text-xs">Duration: {{ $module->time_minutes }} minutes</p>
                         @endif
                         <p class="mt-2 flex gap-x-1 items-center text-gray-500 text-xs">Completed:
+                            {{-- Le module est présent dans le tableau des modules complétés, on met à complete --}}
+                            @if(isset($completedModules[$ordre]))
                             <x-heroicon-c-check-circle class="text-green-600 w-4" />
+                            @else
+                            <x-heroicon-s-minus-circle class="text-gray-400 w-4" />
+                            @endif
                         </p>
                     </div>
 

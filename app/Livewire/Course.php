@@ -68,10 +68,14 @@ class Course extends Component
         //est-ce que l'utilisateur est inscrit au cours
         $isEnrolled = auth()->user()->isUserEnrolledInCourse($this->cours->id);
 
+        //on recup les modules complétés par l'utilisateur pour ce cours
+        $completedModules = auth()->user()->getCompletedModulesForCourse($this->cours->id)->toArray();
+
         return view('livewire.course', [
             'cours' => $this->cours,
             'modules' => $this->modules,
             'isEnrolled' => $isEnrolled,
+            'completedModules' => $completedModules,
         ]);
     }
 }

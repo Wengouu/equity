@@ -1,12 +1,7 @@
-- Dans filament, ajout table "cours_user" (pour désinscrire des utilisateur d'un cours ou les ajouter par exemple)
-- Créer un table "modules_user" pour savoir quand un utilisateur a commencé un module, et quand il l'a terminer
-- ajouter bouton "Suivant" et "précedent" sur une page de module (suivant comptabilise le module comme terminé)
-- 404 personnalisée
-- aligner le button en bas de la div des cours
-- augmenter la limite de file upload dans le php ini
-- finir la homepage
+- mettre le site en prod sur alwaysdata (modif .env également)
 - faire la doc equity
 
+- Dans filament, ajout table "cours_user" (pour désinscrire des utilisateur d'un cours ou les ajouter par exemple)
 - ajouter table "instructeur" avec les infos de l'instructeur du cours (optionnel)
 - ajouter table "certification" si y'a une certification au bout du cours (appartient à un cours)
 

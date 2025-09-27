@@ -54,9 +54,31 @@ class User extends Authenticatable
         return $this->cours()->where('cours_id', $cours_id)->exists();
     }
 
+    //on vérifie si l'utilisateur a complété le module
+    public function hasUserCompletedModule($cours_id, $module_id): bool
+    {
+        return $this->modules()->where('module_id', $module_id)
+        ->where('modules_users.cours_id', $cours_id)
+        ->exists();
+    }
+
+    //on recupère les id des modules complétés par l'utilisateur pour un cours
+    public function getCompletedModulesForCourse($cours_id)
+    {
+        return $this->modules()
+        ->select('modules.id')
+        ->where('modules_users.cours_id', $cours_id)->get();
+    }
+
     //les cours où l'utilisateur est inscrit
     public function cours()
     {
         return $this->belongsToMany(Cours::class, 'cours_users', 'user_id', 'cours_id');
+    }
+
+    //les modules que l'utilisateur a complétés
+    public function modules()
+    {
+        return $this->belongsToMany(Module::class, 'modules_users', 'user_id', 'module_id');
     }
 }

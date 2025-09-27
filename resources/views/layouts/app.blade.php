@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name_2') }} : Cours gratuits sur le jeu de société {{ config('app.name') }}</title>
+    <title>@yield('title', 'Home - Equity the Board Game Courses')</title>
+    <meta name="description"
+        content="@yield('description', 'Learn to play and master Equity the Board Game with our simple and effective courses.')">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">

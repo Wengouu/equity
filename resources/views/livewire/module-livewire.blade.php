@@ -1,5 +1,4 @@
 @section('title', "$module->titre ($cours->titre) | ".config('app.name_2'))
-
 <div class="max-w-5xl mx-auto p-6 space-y-8">
 
     <x-breadcrumb :links="[
@@ -53,5 +52,8 @@
         @if($nextModule)
         <x-button label="Next Module →" primary spinner="completeModule"
             wire:click="completeModule({{ $cours->id }}, {{ $module->id }}, '{{ $cours->slug }}', '{{ $nextModule->slug }}')" />
+        @else
+        <x-button label="Complete Course ✔" primary spinner="completeCourse"
+            wire:click="completeCourse({{ $cours->id }}, {{ $module->id }}, '{{ $cours->slug }}')" />
         @endif
     </div>

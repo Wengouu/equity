@@ -38,9 +38,9 @@ class VideoForm
                     ->label('Video File')
                     ->disk('public')
                     ->directory('modules-videos')
-                    ->maxSize(50 * 1024) // en Ko, 50 Mo
+                    ->maxSize(1024 * 1024 * 1024) // 1go max
                     ->required(),
-                Text::make('Only one video per module')
+                Text::make('Only one video per module. Max. video size : 1go')
             ]);
     }
 }

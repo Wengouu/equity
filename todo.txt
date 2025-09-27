@@ -1,4 +1,3 @@
-- mettre le site en prod sur alwaysdata (modif .env également)
 - faire la doc equity
 
 - Dans filament, ajout table "cours_user" (pour désinscrire des utilisateur d'un cours ou les ajouter par exemple)

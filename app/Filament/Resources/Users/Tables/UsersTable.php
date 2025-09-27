@@ -18,7 +18,12 @@ class UsersTable
             ->columns([
                 TextColumn::make('email')->label('User Email')->searchable()->sortable(),
                 TextColumn::make('name')->label('User Name')->searchable()->sortable(),
-                IconColumn::make('must_reset_password')->label('Must Reset Password ?')->boolean()->sortable(),
+                IconColumn::make('must_reset_password')->label('Has Reset Password?')
+                ->getStateUsing(function ($record) {
+                    return !$record->must_reset_password;
+                })
+                ->boolean()
+                ->sortable(),
                 TextColumn::make('created_at')->label('Added on')->dateTime('d/m/Y H:i')->sortable(),
                 TextColumn::make('updated_at')->label('Updated on')->dateTime('d/m/Y H:i')->sortable(),
             ])

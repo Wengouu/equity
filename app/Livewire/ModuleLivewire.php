@@ -31,24 +31,36 @@ class ModuleLivewire extends Component
         }
     }
 
+    //lorsqu'un utilisateur complète un module
     public function completeModule($courseId, $moduleId, $courseSlug, $nextModuleSlug)
     {
-        $modules_user = new Modules_user();
-
-        //vérifie si l'utilisateur n'a pas déjà complété le module du cours
-        if(!auth()->user()->hasUserCompletedModule($courseId, $moduleId)) 
-        {
-            //on le marque comme complété
-            try {
-                $modules_user->completeModule($courseId, $moduleId);
-            } catch (\Exception $e) {
-                // Gérer l'exception si nécessaire
-                Log::error('Error completing module: '.$e->getMessage());
-                return redirect()->back()->with('error', 'An error occurred. Please try again.');
-            }
+        //on traite le module
+        try {
+            $this->traitementModule($courseId, $moduleId);
+        } catch (\Exception $e) {
+            // Gérer l'exception si nécessaire
+            \Log::error('Error completing module: '.$e->getMessage());
+            return redirect()->back()->with('error', 'An error occurred. Please try again.');
         }
 
+        //on redirige vers le module suivant
         return redirect()->route('module.detail', [$courseSlug, $nextModuleSlug])->with('success', 'You have successfully completed the previous module!');
+    }
+
+    //si l'utilisateur complète le dernier module du cours, on complète le cours
+    public function completeCourse($courseId, $moduleId, $courseSlug)
+    {
+        //on traite le module
+        try {
+            $this->traitementModule($courseId, $moduleId);
+        } catch (\Exception $e) {
+            // Gérer l'exception si nécessaire
+            \Log::error('Error completing module: '.$e->getMessage());
+            return redirect()->back()->with('error', 'An error occurred. Please try again.');
+        }
+
+        //on redirige vers la page du cours avec un message de succès
+        return redirect()->route('course.detail', ['slug' => $courseSlug])->with('success', 'Congratulations! You have successfully completed the course!');
     }
 
     public function render()
@@ -85,5 +97,22 @@ class ModuleLivewire extends Component
         $this->video = $this->module->videos()->first();
 
         return view('livewire.module-livewire');
+    }
+
+    private function traitementModule($courseId, $moduleId)
+    {
+        $modules_user = new Modules_user();
+
+        //vérifie si l'utilisateur n'a pas déjà complété le module du cours
+        if(!auth()->user()->hasUserCompletedModule($courseId, $moduleId)) 
+        {
+            //on le marque comme complété
+            try {
+                $modules_user->completeModule($courseId, $moduleId);
+            } catch (\Exception $e) {
+                // Gérer l'exception si nécessaire
+                Log::error('Error completing module: '.$e->getMessage());
+            }
+        }
     }
 }
